@@ -31,6 +31,8 @@ public class WASDController : MonoBehaviour
     void Update()
     {
         Debug.Log("update...");
+        
+        Vector3 newPos = rb.position;
 
         if (Input.GetKey(keyUp))
         {
@@ -51,7 +53,14 @@ public class WASDController : MonoBehaviour
         {
             rb.AddForce(Vector3.right * moveForce);
         }
-        
+
+        //wraparound technique didn't work 
+        // if (newPos.x > 9)
+        // {
+        //     Debug.Log("moved to other side of screen");
+        //     newPos.x = -9;
+        // }
+        //
         
     }
 
