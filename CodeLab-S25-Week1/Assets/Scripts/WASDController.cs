@@ -1,7 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WASDController : MonoBehaviour
 {
+    public static Action<string> PlayerCollectsCoin = delegate { };
+    
     public KeyCode keyUp = KeyCode.W;
     public KeyCode keyDown = KeyCode.S;
     public KeyCode keyLeft = KeyCode.A;
@@ -50,24 +55,18 @@ public class WASDController : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Collision enter");
-
-        if (collision.gameObject.tag == "Balloon")
-        {
-            Destroy(collision.gameObject); 
-            
-            //add score to player 2
-        }
-
-        if (collision.gameObject.tag == "Dart")
-        {
-            
-        }
-        //if collision.gameobject.tag == dart then give a point to the dart player 
-        //if the balloon hits a box on screen labeled goal then it will gain a point 
-        
-    }
+    // this code is when they collide with the collectable 
+     private void OnTriggerEnter(Collider collision)
+     {
+         Debug.Log("Triggered");
+         
+         if (collision.GetComponent<Coin>())
+         {
+             Debug.Log("Coin collected");
+             PlayerCollectsCoin(name);
+             Destroy(collision.gameObject);
+         }
+     }
+    
     
 }
