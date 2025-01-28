@@ -1,5 +1,4 @@
-# FILL IN INFO ABOUT YOUR GAME HERE. 
+**2-Player Competitive Coin Collector**
 
-DO NOT LEAVE IT LIKE THIS!!!
+Control the balloons and collect the coins! Use WASD or the arrow keys to control your balloon. 
 
-Please? Please, give me content. I'm begging you. It's not that hard. Thanks.
