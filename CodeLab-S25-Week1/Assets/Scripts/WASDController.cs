@@ -32,7 +32,8 @@ public class WASDController : MonoBehaviour
     {
         Debug.Log("update...");
         
-        Vector3 newPos = rb.position;
+        //stop it from sliding too much after the key is pressed
+        rb.linearVelocity *= 0.99f;
 
         if (Input.GetKey(keyUp))
         {
